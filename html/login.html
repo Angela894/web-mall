@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="../css/mycss.css">
+</head>
+<body>
+<!--头部-->
+<div class="header">
+    <div class="nav">
+        <a href="../index.html" class="logo"><img src="../img/logo.png" alt=""></a>
+        <div class="title">欢迎登录</div>
+        <a href="javascript:" class="survey"><span class="icon"></span>我想对“登录”提意见</a>
+    </div>
+    <div class="warn">
+        <div class="warns">
+        <marquee>
+            <span class="icon"></span>
+        &nbsp;&nbsp;为确保您账户的安全及正常使用，依《网络安全法》相关要求，6月1日起会员账户需绑定手机。如您还未绑定，请尽快完成，感谢您的理解及支持！
+        </marquee>
+        </div>
+    </div>
+</div>
+<!--正文-->
+<div class="body">
+    <div class="center-bg">
+        <div class="box">
+            <div class="box-login-top">账号登录</div>
+            <div class="box-login-center">
+                <input class="username" name="username" type="text" value="" placeholder="&nbsp;&nbsp;&nbsp;手机号码/用户名/邮箱/门店会员卡号">
+                <input class="password" name="password"  type="password" value="" placeholder="&nbsp;&nbsp;&nbsp;密码">
+                <div class="checkboxs"><input type="checkbox" value="">&nbsp;&nbsp;自动登录</div>
+                <input class="submits" type="button" value="登录">
+            </div>
+            <div class="box-login-bottom">
+                <a href="javascript:" class="survey">门店会员首次登录 &nbsp;|</a>
+                <a href="javascript:" class="survey">QQ&nbsp;|</a>
+                <a href="javascript:" class="survey">微信&nbsp;|</a>
+                <a href="javascript:" class="survey">微博&nbsp;|</a>
+                <a href="javascript:" class="survey">美付宝</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<div class="footer">
+    <div class="box">
+    <ul class="headline">
+        <a href="javascript:"><li>国美集团</li></a>
+        <a href="javascript:"><li>国美管家</li></a>
+        <a href="javascript:"><li>关于国美</li></a>
+        <a href="javascript:"><li>加入我们 &nbsp;&nbsp; |</li></a>
+        <a href="javascript:"> <li>品牌大全</li></a>
+        <a href="javascript:"> <li>商品专题</li></a>
+        <a href="javascript:"><li>批发大全</li></a>
+        <a href="javascript:"><li>热词搜索</li></a>
+        <a href="javascript:"><li>友情链接</li></a>
+        <a href="javascript:"><li>风险监测 &nbsp;&nbsp;|</li></a>
+        <a href="javascript:"><li>销售联盟</li></a>
+        <a href="javascript:"> <li>商家入驻</li></a>
+    </ul>
+       <p class="version">国美在线电子商务有限公司  办公地址:上海市嘉定区沪宜公路3163-3199号一楼A区  客服电话:4008708708  |  本公司游戏产品适合18岁以上成年人使用</p>
+        <p class="version">©2000-2017  国美在线电子商务有限公司版权所有  京公安网备11010502027062  沪ICP备11009419号  沪B2-20120004号</p>
+        <div class="credit">
+            <ul class="credits">
+                <li><div class="img xinxi"></div><p>经营性网站备案信息</p></li>
+                <li><div class="img pinjia"></div><p>可信网站信用评价</p></li>
+                <li><div class="img wangzhan"></div><p>诚信网站</p></li>
+                <li><div class="img jingcha"></div><p>朝阳网络警察</p></li>
+                <li><div class="img dajiaping"></div><p>网购大家评</p></li>
+                <li class="change"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../js/myajax.js"></script>
+<script>
+var oUserName=document.querySelector("input[name=username]");
+    var oPassWord=document.querySelector("input[name=password]");
+    var oSunMit=document.querySelector("input[type=button]");
+    oSunMit.onclick=function(){
+        //js校验
+        //直接调用登录的接口
+        myajax.post("http://h6.duchengjiu.top/shop/api_user.php",{
+            status:"login",
+            username:oUserName.value,
+            password:oPassWord.value
+        },function(error,responseText){
+            var json=JSON.parse(responseText);
+            console.log(json);
+            localStorage.username = json.data.username;
+            localStorage.token = json.data.token;
+            alert("登录成功")
+            location.backurl;
+            location.href="../index.html"
+        })
+    }
+</script>
+</html>

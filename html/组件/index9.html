@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+    <link rel="stylesheet" href="../css/mycss04.css">
+	</head>
+	<body>
+		    <div class="shadeTwo" id="shadeTwo">
+            <div id="addReceiving" class="addReceiving">
+                <h1>新增收货地址<span id="Del" class="Del">关闭</span></h1>
+                <form>
+                    <p id="newReceiving">收货地址：
+                        省份：
+                        <select id="province" name="province">
+                            <option value="0" >-请选择-</option>
+                        </select>
+                        城市：
+                        <select id="city" name="city">
+                            <option value="0" >-请选择-</option>
+                        </select>
+                        区县：
+                        <select id="district" name="district">
+                            <option value="0" >-请选择-</option>
+                        </select>
+                    <p>收货人 &nbsp;&nbsp;：
+                        <input type="text" name="consignee" id="consignee"><span></span>
+                    </p>
+                    <p>详细地址&nbsp;:
+                        &nbsp;<input type="text" name="address" id="address"><span></span>
+                    </p>
+                    <p>电话号码&nbsp;:
+                        &nbsp;<input type="tel" name="tel" id="tel"><span></span>
+                    </p>
+                    <p>手机电话&nbsp;:
+                        &nbsp;<input type="tel" name="mobile" id="mobile"><span></span>
+                    </p>
+                    
+                </form>
+                <button type="submit">确认保存</button>
+            </div>
+        </div>
+	</body>
+	<script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../city2.js"></script>
+    <script type="text/javascript" src="../searchBut.js"></script>
+    <script type="text/javascript" src="../unify.js"></script>
+    <script type="text/javascript" src="../indent.js"></script>
+</html>

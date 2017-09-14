@@ -1,0 +1,66 @@
+.shadeTwo{
+	width: 800px;
+	height: 500px;
+	border: 2px solid #d7000f;
+	margin: 100px auto;
+}
+.shadeTwo .addReceiving{
+	margin: 50px;
+	font-size: 15px;
+}
+.shadeTwo .addReceiving button{
+	width: 200px;
+	height:50px;
+	margin-left: 245px;
+	margin-top: 20px;
+	background-color:#d7000f;
+	color: white;
+	outline: none;
+	border: none;
+	font-size: 20px;
+	transition:0.2s;
+	cursor: pointer;
+}
+.shadeTwo .addReceiving button:active{
+	transform: scale(0.9,0.9);
+	transition:0.2s
+}
+.shadeTwo .addReceiving h1{
+	color:#d7000f ;
+	margin-left: 255px;
+}
+.shadeTwo .addReceiving select{
+	width:95px;
+	height: 35px;
+	cursor: pointer;
+	font-size: 16px;
+}
+.shadeTwo .addReceiving input{
+	width: 200px;
+	height: 20px;
+}
+.shadeTwo .addReceiving .Del{
+	float: right;
+	width: 50px;
+	height:25px;
+	background-color:#d7000f;
+	color: white;
+	text-align: center;
+	line-height: 25px;
+	font-size: 14px;
+	transition:0.2s;
+	cursor: pointer;
+}
+.shadeTwo .addReceiving .Del:active{
+	transform: scale(0.9,0.9);
+	transition:0.2s
+}
+
+.shadeTwo .addReceiving form{
+	margin-left: 90px;
+	margin-top: 45px;
+}
+.shadeTwo .addReceiving form p{
+	margin-top: 20px;
+	font-size: 20px;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <link rel="stylesheet" href="../css/mycss.css">
+</head>
+<body>
+<!--头部-->
+<div class="header">
+    <div class="nav">
+        <a href="../index.html" class="logo"><img src="../img/logo.png" alt=""></a>
+        <div class="title">欢迎注册</div>
+    </div>
+</div>
+<!--正文-->
+<div class="register-body">
+<div class="register">个人用户注册</div>
+<div class="line-left"></div>
+<div class="line-right"></div>
+<div class="registers">
+    <div class="boxs">
+    <label>
+        用户名
+        <input type="text" name="username">
+    </label>
+    <label>
+        设置密码
+        <input type="password" name="password">
+    </label>
+    <label>
+        确认密码
+        <input type="password" name="password-one">
+    </label>
+    <label>
+        <input class="click" type="submit" value="立即注册">
+    </label>
+    </div>
+</div>
+</div>
+<!--底部-->
+<div class="footer">
+    <div class="box">
+        <ul class="headline">
+            <a href="javascript:"><li>国美集团</li></a>
+            <a href="javascript:"><li>国美管家</li></a>
+            <a href="javascript:"><li>关于国美</li></a>
+            <a href="javascript:"><li>加入我们 &nbsp;&nbsp; |</li></a>
+            <a href="javascript:"> <li>品牌大全</li></a>
+            <a href="javascript:"> <li>商品专题</li></a>
+            <a href="javascript:"><li>批发大全</li></a>
+            <a href="javascript:"><li>热词搜索</li></a>
+            <a href="javascript:"><li>友情链接</li></a>
+            <a href="javascript:"><li>风险监测 &nbsp;&nbsp;|</li></a>
+            <a href="javascript:"><li>销售联盟</li></a>
+            <a href="javascript:"> <li>商家入驻</li></a>
+        </ul>
+        <p class="version">国美在线电子商务有限公司  办公地址:上海市嘉定区沪宜公路3163-3199号一楼A区  客服电话:4008708708  |  本公司游戏产品适合18岁以上成年人使用</p>
+        <p class="version">©2000-2017  国美在线电子商务有限公司版权所有  京公安网备11010502027062  沪ICP备11009419号  沪B2-20120004号</p>
+        <div class="credit">
+            <ul class="credits">
+                <li><div class="img xinxi"></div><p>经营性网站备案信息</p></li>
+                <li><div class="img pinjia"></div><p>可信网站信用评价</p></li>
+                <li><div class="img wangzhan"></div><p>诚信网站</p></li>
+                <li><div class="img jingcha"></div><p>朝阳网络警察</p></li>
+                <li><div class="img dajiaping"></div><p>网购大家评</p></li>
+                <li class="change"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../js/myajax.js"></script>
+<script>
+    var oUsername=document.querySelector("input[name=username]");
+    var oPassword=document.querySelector("input[name=password]");
+    var oPaassWordOne=document.querySelector("input[name=password-one]")
+    var oSubmit=document.querySelector("input[type=submit]");
+    oSubmit.onclick=function(){
+        //检测注册账户是否可用，js校验通过
+        ////请求ajax进行校验用户名是否可用,当这个校验通过才能请求注册接口
+        if(oPassword.value !== oPaassWordOne.value){
+            alert("俩次输入密码不一致");
+            return;
+        }
+        myajax.post(`http://h6.duchengjiu.top/shop/api_user.php`,{
+            status:"register",
+            username:oUsername.value,
+            password:oPassword.value
+        },function(error,responseText){
+            var json=JSON.parse(responseText);
+            alert("注册成功");
+            location.backurl;
+            location.href=`../html/登录页面.html`
+        })
+    }
+</script>
+</html>

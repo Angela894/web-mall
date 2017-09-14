@@ -1,0 +1,146 @@
+.helloworld .logo {
+    float: left;
+    width: 145px;
+}
+.helloworld-left{
+    width: 118px;
+    height: 100px;
+    float: left;
+}
+.helloworld-left h1{
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+#cat{
+    width: 1200px;
+    height: 40px;
+    margin: 0 auto;
+    background: #c00;
+}
+#cat li{
+    float: left;
+    margin-left: 73px;
+    line-height: 40px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+#cat li a{
+    color: white;
+}
+#goods_id{
+    width: 1100px;
+    height:320px;
+    margin: 40px auto;
+}
+#goods_id a{
+    width: 400px;
+}
+#goods_id a li{
+    float: left;
+}
+#goods_id a li img{
+    width: 300px;
+    height: 300px;
+    border: 1px solid #cc0000;
+}
+.thumb{
+    width: 310px;
+    height: 310px;
+}
+.price{
+    margin-top: 80px;
+    margin-left: 30px;
+    font-size: 30px;
+    color: #cc0000;
+}
+.inputs{
+    margin-top: 130px;
+    margin-left: -130px;
+}
+.inputs input{
+    width: 50px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid #cc0000;
+}
+.max-long{
+    width: 660px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 40px;
+    font-size: 26px;
+    font-family:华文楷体;
+    color: black;
+}
+.cartd input{
+    width: 150px;
+    height: 50px;
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    margin-left: 30px;
+    background-color: #cc0000;
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    transition: 0.2s;
+}
+.cartd input:active{
+    transform:scale(0.9,0.9);
+    transition: 0.2s;
+}
+.carts input{
+    width: 150px;
+    height: 50px;
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    margin-left: 50px;
+    background-color: #cc0000;
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    transition: 0.2s;
+}
+.carts input:active{
+    transform:scale(0.9,0.9);
+    transition: 0.2s;
+}
+main{
+    width: 960px;
+    margin: 0 auto;
+}
+table,td {
+    border: 2px solid #cc0000;
+    padding: 10px;
+    vertical-align: middle;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+table img {
+    border-radius: 50%;
+    width: 100px;
+}
+
+.pourpre{
+    margin-top: 15px;
+    color: #cc0000;
+}
+.pourpre input{
+    margin:0 10px;
+    font-weight: 600;
+    color: #cc0000;
+}
+.pourpre button{
+    font-weight: 600;
+}
+.pourpre button a{
+    color: #cc0000;
+}
