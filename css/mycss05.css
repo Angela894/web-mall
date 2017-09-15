@@ -1,11 +1,7 @@
 
-.helloworld .helloworld-center{
-    position: relative;
-    top: 35px;
-}
 .helloworld .shopping{
     position: relative;
-    top: 0px;
+    top: -70px;
 }
 .particulars{
     width: 300px;
@@ -28,4 +24,12 @@
     border: 2px solid #cc0000;
     border-left: none;
     border-right: none;
+}
+.helloworld .logo{
+    clear: both;
+}
+#cat .blank{
+    width: 60px;
+    height: 40px;
+    float: left
 }

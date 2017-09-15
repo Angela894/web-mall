@@ -1,18 +1,22 @@
 .helloworld .logo {
-    float: left;
     width: 145px;
 }
-.helloworld-left{
+.helloworld .helloworld-left{
     width: 118px;
     height: 100px;
     float: left;
+    color: white;
+}
+.helloworld .helloworld-left a{
+    color: white;
 }
 .helloworld-left h1{
     font-size: 26px;
     font-weight: 600;
-    line-height: 100px;
+    line-height: 137px;
     text-align: center;
     cursor: pointer;
+    color: #cc0000;
 }
 #cat{
     width: 1200px;
@@ -21,11 +25,12 @@
     background: #c00;
 }
 #cat li{
+    width: 40px;
+    height: 26px;
     float: left;
-    margin-left: 73px;
+    margin-left: 60px;
     line-height: 40px;
     font-size: 20px;
-    margin-bottom: 20px;
 }
 #cat li a{
     color: white;
@@ -114,15 +119,18 @@ main{
     width: 960px;
     margin: 0 auto;
 }
-table,td {
-    border: 2px solid #cc0000;
-    padding: 10px;
-    vertical-align: middle;
-}
+
 table {
     border-collapse: collapse;
     width: 100%;
     text-align: center;
+    margin-top: 25px;
+    font-size: 18px;
+}
+table,td {
+    border: 2px solid #cc0000;
+    padding: 10px;
+    vertical-align: middle;
 }
 table img {
     border-radius: 50%;

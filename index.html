@@ -62,7 +62,7 @@
     <div class="nav-left">
         <ul>
             <li class="tiger">
-                <a href="javascript:">
+                <a href="index.html">
                     <p></p>
                 国美
                 </a>
@@ -78,7 +78,7 @@
                     </p>
                 </div>
                 <div id="guomei-membre-bottom">
-                    <img src="img/QQ截图20170911171927.png" alt="">
+                    <img src="img/GM.png" alt="">
                 </div>
             </div>
             </a>
@@ -178,7 +178,7 @@
     </div>
 </div>
 </div>
-<!--搜索-->
+<!--搜索栏-->
 <div class="helloworld">
     <div class="logo">
         <a href="index.html"></a>
@@ -216,7 +216,7 @@
     <h3>全部商品分类</h3>
 </div>
     <div class="classer-center-center">
- <ul id="guomeimei"></ul>
+ <ul id="guomeis"></ul>
     </div>
     <div class="classer-right">
         <marquee direction="up" scrollamount="5">
@@ -2117,7 +2117,7 @@
     }
 </script>
 <script>
-    var oUl=document.querySelector("#guomeimei");
+    var oUl=document.querySelector("#guomeis");
     myajax.get("http://h6.duchengjiu.top/shop/api_cat.php",{},function(error,responseText){
         var json=JSON.parse(responseText);
         console.log(json);
