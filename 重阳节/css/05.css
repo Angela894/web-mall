@@ -1,0 +1,63 @@
+.swiper-container .swiper-wrapper .swiper-slide .tu5{
+    position: relative;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+}
+.swiper-container .swiper-wrapper .swiper-slide .shu5{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.swiper-container .swiper-wrapper .swiper-slide .he5-left{
+    position: absolute;
+    right: 32%;
+    bottom: 18%;
+ }
+.swiper-container .swiper-wrapper .swiper-slide .he5-center{
+    position: absolute;
+    right: 15%;
+    bottom: 18%;
+}
+.swiper-container .swiper-wrapper .swiper-slide .he5-right{
+    position: absolute;
+    right: 5%;
+    bottom: 18%;
+}
+.swiper-container .swiper-wrapper .swiper-slide .mei5{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.swiper-container .swiper-wrapper .swiper-slide .da5{
+     position: absolute;
+     left: 40%;
+     top: 15%;
+ }
+.swiper-container .swiper-wrapper .swiper-slide .yan5{
+    position: absolute;
+    left: 43%;
+    top: 8%;
+}
+.swiper-container .swiper-wrapper .swiper-slide .mao5{
+    position: absolute;
+    left: 15%;
+    top: 25%;
+}
+.swiper-container .swiper-wrapper .swiper-slide .wenzi5-1{
+    position: absolute;
+    margin: 0 auto;
+    top: 50%;
+    font-weight: 700;
+    color: rgb(37, 37, 37);
+    font-size: 1.5rem;
+}
+.swiper-container .swiper-wrapper .swiper-slide .wenzi5-2{
+    position: absolute;
+    margin: 0 auto;
+    top: 58%;
+    font-weight: 700;
+    color: rgb(37, 37, 37);
+    font-size: 1.3rem;
+}
