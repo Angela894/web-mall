@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索商品</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet" href="../css/swiper-3.4.2.min.css">
+</head>
+<body>
+<!--搜索栏-->
+<div class="goods_list">
+    <nav class="toolbar">
+        <a class="toolbar-return nav_return" href="../index.html">
+            <div class="nav_return"><span class="demoSpan1"></span></div>
+        </a>
+        <div class="search-text">
+            <div class=" search-box">
+                <input class="input" id="search-text" type="text" placeholder="搜索商品">
+                <div id="search-btn" class="search-btn"></div>
+            </div>
+
+        </div>
+        <div class="dian" id="dian">
+            ○○○
+        </div>
+        <ul class="kuang">
+        <span class="demoSpan2">
+        </span>
+            <li>
+                <img src="../images/20171012152034.png" alt="">
+                <a href="../index.html">首页</a>
+            </li>
+            <li>
+                <a href=""><img src="../images/20171012154830.png" alt="">
+                    分类搜索</a>
+            </li>
+            <li><img src="../images/20171012155047.png" alt="">
+                <a href="../html/cart.html">购物车</a>
+            </li>
+            <li class="last">
+                <img src="../images/20171012152218.png" alt="">
+                <a href="../index.html">我的国美</a>
+            </li>
+        </ul>
+    </nav>
+    <!--新-->
+    <div class="Tabs_module">
+        <a class="general_list_second_show general_list_second_show1" href="#">
+            <div class="tab_ckd">
+                <span class="tab_ckd2">综合</span>
+                <div class="general_red_up"></div>
+            </div>
+            <div class="sw">
+                <p class="sw1">综合</p>
+                <p class="sw2">评论从高到低</p>
+            </div>
+        </a>
+        <a class="general_list_second_show" href="#">
+            <div class="tab_ckd">
+                <i>价格</i>
+            </div>
+            <div class="sort-gray"></div>
+        </a>
+        <a class="general_list_second_show" href="#">
+            <div class="tab_ckd">销量</div>
+        </a>
+        <a class="general_list_second_show" href="#">
+            <div class="tab_ckd tab_ckd1">筛选</div>
+        </a>
+    </div>
+    <div class="tag_list">
+        <ul class="flexbox">
+            <li class="ajax_req">
+                <span class="ellipsis">国美自营</span>
+            </li>
+            <li class="ajax_req">
+                <span class="ellipsis">仅看有货</span>
+            </li>
+            <li class="ajax_req">
+                <span class="ellipsis">返利</span>
+            </li>
+            <li class="ajax_req ajax_req1">
+                <span class="ellipsis" data-default="品牌">品牌</span>
+                <i class="down" data-icon="C"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--列表内容-->
+<div class="big-box">
+<div class="search">
+    <a href="" class="logo"></a>
+    <div class="search-text">
+        <span></span>
+    </div>
+</div>
+</div>
+<div class="shop" id="shop">
+    <!--回到顶部-->
+    <div class="backtotop" id="backtotop">
+        <a onclick="pageScroll()">顶部</a>
+    </div>
+</div>
+<div class="footer">
+    <img class="datu" src="../images/0301.png" alt="">
+    <div class="bottom">
+        <div class="login">
+            <p class="left">登录 &nbsp;<a>|</a>&nbsp; 注册</p>
+            <p class="right">反馈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更多</p>
+        </div>
+        <div class="ban">
+            <div class="cp"><img src="../images/0302.png" alt=""><p>触屏版</p></div>
+            <div class="kh"><img src="../images/0303.png" alt=""><p>客户端</p></div>
+            <div class="dn"><a href="http://www.liuyawei.top/gome/"><img src="../images/0304.png" alt=""><p>电脑版</p></a></div>
+        </div>
+        <div class="diban">
+            <p>copyright © 2000-2017 gome.com.cn</p>
+            <p>客服热线：4008-708-708</p>
+        </div>
+    </div>
+</div>
+</body>
+<!--底部-->
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/search.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".general_list_second_show1").on('touchstart', function () {
+            $(".sw").slideToggle("slow");
+        });
+        $("#dian").on('touchstart', function () {
+            if($(".nav_ulist").is(":hidden")){
+                $(".nav_ulist").slideDown();
+            }else{
+                $(".nav_ulist").slideUp();
+            }
+
+        });
+    });
+</script>
+<!--返回顶部-->
+<script>
+    function pageScroll(){
+//把内容滚动指定的像素数（第一个参数是向右滚动的像素数，第二个参数是向下滚动的像素数）
+        window.scrollBy(0,-100);
+//延时递归调用，模拟滚动向上效果
+        scrolldelay = setTimeout('pageScroll()',20);
+//获取scrollTop值，声明了DTD的标准网页取document.documentElement.scrollTop，否则取document.body.scrollTop；因为二者只有一个会生效，另一个就恒为0，所以取和值可以得到网页的真正的scrollTop值
+        var sTop=document.documentElement.scrollTop+document.body.scrollTop;
+//判断当页面到达顶部，取消延时代码（否则页面滚动到顶部会无法再向下正常浏览页面）
+        if(sTop==0) clearTimeout(scrolldelay);
+    }
+
+</script>
+<!--/添加搜索功能-->
+<script>
+    //添加搜索功能
+    var searchBtn = $("#search-btn");
+    if (searchBtn.length === 1) {
+        searchBtn.click(function(){
+            location.href = '../html/search.html?search_text=' + $("#search-text").val();
+        });
+    }
+</script>
+<!--导航栏隐藏框-->
+<script>
+    $(function(){
+        $("#dian")[0].addEventListener('touchstart',function(){
+            if($('.kuang').css("display")=="none"){
+                $('.kuang').css("display","block");
+            }
+            else{
+                $('.kuang').css("display","none");
+            }
+        },false);
+    });
+</script>
+</html>

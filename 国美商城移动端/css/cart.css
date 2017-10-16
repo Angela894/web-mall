@@ -1,0 +1,133 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #EBEBEB;
+}
+.header-container {
+	width: 100%;
+	height: 5%;
+	font-size: 1.3rem;
+	padding-bottom:5%;
+	padding-top: 3%;
+	border-bottom: 2px solid #EAEBEC;
+	background-color: white;
+}
+.header-container p{
+	margin-left: 42%;
+}
+.atag{
+	float: right;
+	margin-top: -5.5%;
+	font-size: 1rem;
+	text-decoration: none;
+	color: grey;
+	margin-right: 3%;
+}
+.back{
+	width: 3.5%;
+	height: 28px;
+	float: left;
+	margin-left: 3.5%;
+	background: url(../images/return-g.f87dba933a.png) no-repeat;
+	background-size: 100% 100%;
+}
+.body{
+	width: 100%;
+	height: 700px;
+}
+.personage{
+	width: 90%;
+	height: 15%;
+	padding: 5% 5%;
+	margin-bottom: 5%;
+	background: white;
+}
+.left{
+	width: 30%;
+	height: 100%;
+	border: 1px solid #FF5C5C;
+	float: left;
+	border-radius: 5%;
+	overflow: hidden;
+}
+.left>img{
+	width: 100%;
+	height: 100%;
+}
+.right{
+	width: 59%;
+	height: 100%;
+	float: left;
+	position: relative;
+}
+.name{
+	width: 95%;
+	height: 30%;
+	padding-left: 5%;
+	font-size: 1.1rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.but{
+	width: 95%;
+	height: 23%;
+	position: absolute;
+	top: 80%;
+}
+.price{
+	height: 100%;
+	font-size: 1.2rem;
+	color: #FD5151;
+	float: left;
+}
+.numb{
+	height: 100%;
+	float: right;
+}
+.numb input{
+	
+}
+.delete{
+	width: 10%;
+	height: 100%;
+	float: right;
+}
+.delete>input{
+	width: 70%;
+	height: 25%;
+	float: right;
+	margin-top: 100%;
+	border: none;
+	background: #FF5C5C;
+	border-radius: 50%;
+	color: white;
+	font-size: 1.5rem;
+}
+.foot{
+	width: 100%;
+	height: 7%;
+	background: white;
+	position: fixed;
+	bottom: 0;
+	font-size: 1.5rem;
+	padding-left: 5%;
+}
+#sum{
+	font-size: 2rem;
+	color: #FF5C5C;
+}
+.foot>a{
+	display: block;
+	width: 28%;
+	height: 100%;
+	background: #FF5C5C;
+	text-decoration: none;
+	float: right;
+	color: white;
+	font-size: 1.3rem;
+	padding-top: 2.5%;
+	padding-left: 7%;
+}

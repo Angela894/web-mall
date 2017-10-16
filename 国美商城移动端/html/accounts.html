@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/accounts.css">
+    <link rel="stylesheet" href="../css/checkout.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .address-item{
+            flex: 3.333;
+            border: 1px solid #c5c5c5;
+            text-align: center;
+            box-sizing: border-box;
+            background-color: #fff;
+            padding: .5rem;
+        }
+        #nihao{
+            float: left;
+            display: flex;
+            width: 100%;
+            height: 5rem;
+            background-color:white;
+        }
+        #addUserAddress{
+            float: right;
+            width: 100%;
+            height: 2rem;
+            display: block;
+            text-align: center;
+            background-color: #fff;
+            line-height: 2rem;
+        }
+        #goods-img{
+            width: 6rem;
+            height: 6rem;
+        }
+        #jieshao{
+           line-height: 5rem;
+            overflow: hidden;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="headers">
+    <a href="index.html"><span class="demoSpan1">
+    </span></a>
+    <div class="tian">填写订单</div>
+</div>
+<div class="xian"></div>
+<div class="pei">
+    <div class="peisong">配送地址</div>
+</div>
+<div class="tianjia">
+    <i id="haha"></i>
+    <span class="di">请先填写收货地址</span>
+    <div id="nihao"></div>
+    <span id="addUserAddress">新增收货人信息</span>
+    <!--<span class="demoSpan3">-->
+    <!--</span>-->
+</div>
+<div id="gouwu">
+
+</div>
+
+<div class="peisong">
+    <p class="pei2">配送方式</p>
+    <p class="song">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;普通快递<br>
+        送货：时间不限
+    </p>
+    <span class="demoSpan3">
+    </span>
+</div>
+<div class="peisong zhifu">
+    <p class="pei2 pei3">支付方式</p>
+    <p class="song song2">
+        在线支付
+    </p>
+    <span class="demoSpan3">
+    </span>
+</div>
+<div class="peisong zhifu fapiao">
+    <p class="pei2 pei3">发票信息</p>
+    <p class="song song2">
+        暂不需要发票
+    </p>
+    <span class="demoSpan3">
+    </span>
+</div>
+<div class="peisong zhifu youhui">
+    <p class="pei2 pei3">优惠券</p>
+    <p class="hui">
+        暂无可用优惠券
+    </p>
+    <span class="demoSpan3">
+    </span>
+</div>
+<div class="peisong zhifu youhui meidou">
+    <p class="pei2 mei2">美豆</p>
+    <p class="dou">
+        共0美豆,慢100美豆可使用
+    </p>
+</div>
+<div class="peisong zhifu youhui tuijian">
+    <p class="pei2 tui">使用推荐号</p>
+    <p class="jian">
+        请输入门店营业编号(选填)
+    </p>
+</div>
+<div class="peisong zhifu youhui kouling">
+    <p class="pei2 pei3 kou">美口令：</p>
+    <p class="hui ling">
+        使用美口令,请输入
+    </p>
+</div>
+<div class="peisong di">
+    <p class="pei2 shang">
+        商品总计<br>
+        运费
+    </p>
+    <p class="song">
+        1件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥<span id="song"></span><br>
+        +￥0.00
+    </p>
+</div>
+<div class="footer">
+    <div class="foot-left">
+       <div class="pian">
+            应付金额：
+            <span id="foot-left">
+            </span>
+       </div>
+</div>
+    <div class="foot-right">提交订单</div>
+</div>
+<!------------------------>
+<div id="address"></div>
+<div class="layer">
+    <div class="dialog">
+        <h2>新增收货人信息<span>x</span></h2>
+        <form>
+            收货人名称：<input type="text" name="address_name" value="关老师"><br />
+            省：<input type="text" name="province" value="北京"><br />
+            市：<input type="text" name="city" value="北京"><br />
+            区：<input type="text" name="district" value="石景山"><br />
+            地址：<input type="text" name="address" value="实兴东街"><br />
+            手机号：<input type="text" name="mobile" value="18518361921"><br />
+            <input type="button" id="add" name="" value="添加收货地址">
+        </form>
+    </div>
+</div>
+
+</body>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/common.js"></script>
+
+<script type="text/javascript">
+    //得到商品ID
+    var goods_id = $.getQueryString('goods_id');
+    console.log(goods_id);
+
+    shop.api.fetchGoodsDetail(goods_id, function(response){
+        var obj = response.data[0];
+        console.log(obj);
+        $('#goods-img').attr('src', obj.goods_thumb);
+        $('#jieshao').text(obj.goods_name);
+        $('#jia').text(obj.price);
+        //$('#goods_desc').text(obj.goods_desc);
+        $('#add-to-cart').click(function(){
+            //验证用户是否登录，未登录则跳到登录页
+            if (!localStorage.token) {
+                // location.assign( 'login.html#callbackurl='+location.href);
+                location.href = 'login.html#callbackurl='+location.href;
+                return;
+            }
+            console.log('已登录');
+            //获取当前商品已经购买的数量
+            var goods_number = localStorage.getItem('cart'+goods_id);
+            goods_number = goods_number ? parseInt(goods_number)+1 : 1;//如果已经有了则加1，没有则是第一次购买
+            shop.api.updateCart(goods_id, goods_number, function(response) {
+                //加入购物车了之后把商品ID和对应的数量存储到本地
+                shop.base.business.saveGoodsInfoOfCart(goods_id, goods_number);
+                location.href = '/cart.html';
+            });
+
+
+
+
+        });
+    });
+    $.ajax({
+        url:"http://h6.duchengjiu.top/shop/api_cart.php?token="+localStorage.token,
+        type:"get",
+        success:function(data){
+            console.log(data);
+            var json = data.data;
+            for(var k in json){
+                $("#gouwu")[0].innerHTML +=`<div class="huo">
+                <img src="${json[k].goods_thumb}" alt="" id="goods-img"">
+                <div class="tu" id="jieshao">${json[k].goods_name}</div>
+                        <div class="jia">
+                        <div id="jia">${json[k].goods_price}</div>
+                        </div>
+                        </div>`
+            }
+
+
+        }
+    })
+</script>
+<script>
+    //得到总价，显示在当前页面
+    var total = $.getQueryString('total');
+    $('#jia').text('总计：'+total);
+    var address_id = 0;
+    //给地址栏加上一个点击事件
+    $('#address').click(function(event){
+        console.log(event.target);
+        if (event.target) {
+            address_id = event.target.getAttribute('data-id');
+        }
+    });
+    $(function(){
+
+        //点击下订单
+        //提交一个ajax请求，真实的下一个订单
+        //下完订单之后跳转到订单列表页面
+        $('.foot-right').click(function(){
+            if (address_id === 0) {
+                alert('请选择地址后再下订单');
+                return;
+            }
+            shop.api.addOrder(address_id, total, function(response){
+                console.log(response);
+                location.assign('order.html');
+            });
+//            var total_prices = localStorage.sum;
+//            $.post('http://h6.duchengjiu.top/shop/api_order.php?token='+localStorage.token+'&status=add',{
+//                address_id, total_prices
+//            },function(json){
+//                if (json.code === 0) {
+//                    alert('下订单成功');
+//                    location.href = '../html/addition.html';
+//                }
+//            })
+        });
+
+        //点击新增按钮显示新增表单
+        $("#addUserAddress").click(function(){
+            $(".layer").show();
+        });
+        $(".layer h2 span").click(function(){
+            $(".layer").hide();
+        });
+        $('#add').click(function(){
+            var data = $("form").serialize();
+            console.log(data);
+            shop.api.addUserAddress(data, function(response){
+                console.log(response);
+                if (response.code === 0) {
+                    $('.layer').hide();
+                    fetchUserAddress();
+                }
+            });
+        });
+
+        fetchUserAddress();
+        function fetchUserAddress() {
+            shop.api.fetchUserAddress(function(response) {
+                var html = "";
+                for (var i = 0; i < response.data.length; i++) {
+                    var obj = response.data[i];
+                    html += '<div class="address-item" data-id="'+obj.address_id+'">'+ obj.address_name +' ' + obj.city + ' ' + obj.province + ' ' + obj.district + ' ' + obj.address +' ' + obj.mobile + ' </div>';
+                }
+                $('#nihao').html(html);
+            });
+        }
+    });
+</script>
+</html>

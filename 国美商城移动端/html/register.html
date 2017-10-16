@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>注册</title>
+		<link rel="icon" href="../images/01grass_logo.png">
+		<link rel="stylesheet" href="../css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../css/register.css" />
+	</head>
+	<body>
+		<div class="header-container">
+			<a class="back" href="javascript:history.go(-1)"></a>
+			<div class="wenzi">注册</div>
+		</div>
+		<main>
+			<div class="login">
+				<div class="login_img login_img1"></div>
+				<input class="inputs" type="text" name="username"placeholder="请输入用户名">
+			</div>
+			<span class="warning spans"></span>
+
+			<div class="login">
+				<div class="login_img login_img2"></div>
+				<input class="inputs" type="password" name="password"placeholder="请输入密码">
+			</div>
+			<span class="warningss spans"></span>
+
+			<div class="login">
+				<div class="login_img login_img3"></div>
+				<input  class="inputs"  type="password" name="password-one"placeholder="请确认密码">
+			</div>
+			<span class="warnings spans"></span>
+
+			<input type="submit" class="click submit" value="注册">
+		</main>
+		<div class="footer">
+			<div class="left"></div>
+			<div class="right">
+				<p>我已阅读并同意以下协议，接受免除或限制责任、诉讼管辖约定等条款，愿意同步创建账户。</p>
+				<p><a href="#">《国美平台服务协议》</a>  <a href="#">《美付宝服务协议》</a></p>
+			</div>
+		</div>
+	</body>
+	<script src="../js/myajax.js"></script>
+	<script src="../js/jquery-3.2.1.js"></script>
+	<script>
+        $('input[name=username]').blur(function () {
+            $.post('http://h6.duchengjiu.top/shop/api_user.php',
+                {
+                    username: $(this).val(),
+                    status: 'check'
+                },
+                function (json) {
+                    if($('input[name=username]').val()==''){
+                        $('span.warning').html('请先输入用户名').removeClass('green').addClass('red')
+                    }else {
+                        if (json.code === 2001) {
+                            {$('span.warning').html('对不起，该用户名已存在').removeClass('green').addClass('red');}
+                        } else {
+                            $('span.warning').html('恭喜，该用户名可用').removeClass('red').addClass('green')
+                        }}
+
+                }
+            )
+        })
+
+        $('input[name=password-one]').blur(function () {
+            if($('input[name=password]').val()==''){
+                $('span.warnings').html('请先输入密码').removeClass('green').addClass('red')
+            }else{
+                if($('input[name=password]').val() !== $('input[name=password-one]').val()){
+                    $('span.warnings').html('两次输入密码不一致').removeClass('green').addClass('red');
+                    return;
+                }else {
+                    $('span.warnings').html('恭喜，验证通过').removeClass('red').addClass('green');
+                }}
+
+        })
+        $('input[name=password]').blur(function () {
+            if($('input[name=password]').val().length<=5){
+                $('input[name=password]').focus();
+                $('.warningss').html('密码最小长度为6位').removeClass('green').addClass('red');
+            }else { $('.warningss').html('密码格式正确').removeClass('red').addClass('green');}
+
+        })
+        $('input[type=submit]').click(function () {
+            myajax.post('http://h6.duchengjiu.top/shop/api_user.php',
+                {
+                    status:'register',
+                    username:$('input[name=username]').val(),
+                    password:$('input[name=password]').val()
+                },function(err,responseText){
+                    var json=JSON.parse(responseText);
+                    console.log(json);
+                    alert(json.message);
+                    if(json.message==='注册成功'){
+                        location.backurl;
+                        location.href=`login.html`
+                    }else {
+                        location.href=`register.html`
+                    }
+                })
+        })
+	</script>
+</html>

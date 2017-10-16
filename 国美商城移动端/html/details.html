@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情</title>
+    <link rel="icon" href="../images/01grass_logo.png">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/details.css">
+</head>
+<body>
+<!--导航栏-->
+<nav class="nav">
+    <div class="headers">
+        <a href="javascript:history.go(-1)"><span class="demoSpan1">
+        </span></a>
+        <ul class="ding">
+            <li><a>商品</a></li>
+            <li>详情</li>
+            <li>评价</li>
+        </ul>
+        <span id="dian">
+        <span class="dian"></span>
+        <span class="dian"></span>
+        <span class="dian"></span>
+        </span>
+    </div>
+    <ul class="kuang">
+        <span class="demoSpan2">
+        </span>
+        <li>
+            <img src="../images/20171012152034.png" alt="">
+            <a href="../index.html">首页</a>
+        </li>
+        <li>
+            <a href=""><img src="../images/20171012154830.png" alt="">
+            分类搜索</a>
+        </li>
+        <li><img src="../images/20171012155047.png" alt="">
+            <a href="../html/cart.html">购物车</a>
+        </li>
+        <li class="last">
+            <img src="../images/20171012152218.png" alt="">
+            <a href="../index.html">我的国美</a>
+        </li>
+    </ul>
+</nav>
+<!--商品详情-->
+
+<div class="datu" id="datu">
+    <img src="" alt="" id="goods-img">
+</div>
+<div class="jie">
+    <p class="jieshao" id="jieshao">
+
+    </p>
+</div>
+<div class="jiaqi">
+    <p class="jiage">￥</p>
+    <p class="qian" id="qian"></p>
+</div>
+<div class="xuan">
+    <p class="yi" id="yi">已选</p>
+    <p class="wei" id="wei"></p>
+    <span class="demoSpan3">
+    </span>
+</div>
+<div class="xuan">
+    <p class="yi" id="song">送至</p>
+    <p class="wei" id="dizhi"></p>
+    <span class="demoSpan3">
+    </span>
+</div>
+<ul class="hide">
+    <li class="tu"><img src="../images/icon1.dd0f2b75ec.png" alt=""></li>
+    <li>支持七天无理由退货</li>
+    <li class="tu"><img src="../images/icon1.dd0f2b75ec.png" alt=""></li>
+    <li>包邮</li>
+</ul>
+<div class="pingjia">
+    <p class="ping">评价(0)</p>
+    <p class="jia">好评度:
+        <a>100%</a></p>
+</div>
+<div class="biao">还没有人评价过此商品哦～</div>
+<div class="gou">
+    <p class="mai quan">全部评价(0)</p>
+    <p class="mai">购买咨询(0)</p>
+</div>
+<div class="footer">
+    <ul class="left">
+        <li>
+            <img src="../images/xq_tab_store.da89572a36.png" alt="">
+            店铺
+        </li>
+        <li>
+            <img src="../images/xq_tab_shoucang_normal.d4d8c18c01.png" alt="">
+            收藏
+        </li>
+        <li>
+            <img src="../images/xq_tab_shopcart.680d835db4.png" alt="">
+            购物车
+        </li>
+    </ul>
+    <div class="center cart" id="add-to-cart"><a href="cart.html">加入购物车</a></div>
+    <div class="right"><a href="accounts.html">立即购买</a></div>
+</div>
+</body>
+<script src="../js/zepto.js"></script>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/detail.js"></script>
+<script>
+    $(function(){
+        $("#dian")[0].addEventListener('touchstart',function(){
+            if($('.kuang').css("display")=="none"){
+                $('.kuang').css("display","block");
+            }
+            else{
+                $('.kuang').css("display","none");
+            }
+        },false);
+    });
+</script>
+
+</html>
